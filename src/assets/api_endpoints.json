@@ -1,3 +1,4 @@
 {
-  "GeoLocation": "https://maps.googleapis.com/maps/api/geocode/json?latlng="
+  "GeoLocation": "https://maps.googleapis.com/maps/api/geocode/json?latlng=",
+  "NearBy": "https://maps.googleapis.com/maps/api/place/nearbyseaarch/json?location="
 }

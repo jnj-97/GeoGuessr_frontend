@@ -1,0 +1,62 @@
+<ul>
+  <li>A</li>
+  <li>B</li>
+  <li>C</li>
+</ul>
+
+<script>
+function setup() {
+  var lis = document.querySelectorAll('ul li');
+  var ul = document.querySelector('ul');
+
+  for (var i = 0; i < lis.length; i++) {
+    lis[i].addEventListener('click', function () {
+      ul.insertBefore(this, ul.firstChild);
+    });
+  }
+}
+
+
+document.body.innerHTML = "<ul><li>A</li><li>B</li><li>C</li></ul>";
+setup();
+</script>
+
+
+<?php
+
+function filterNumbersFromArray(array &$arr) : void
+{
+    foreach ($arr as $key => $value) {
+        if (!is_int($value)) {
+            unset($arr[$key]);
+        }
+    }
+}
+
+$arr = [1, 'a', 'b', 2];
+filterNumbersFromArray($arr);
+print_r(array_values($arr));
+
+import json
+
+def sort_by_price_ascending(json_string):
+    items = json.loads(json_string)
+    items.sort(key=lambda x: (x["price"], x["name"]))
+    return json.dumps(items)
+
+print(sort_by_price_ascending('[{"name":"eggs","price":1},{"name":"coffee","price":9.99},{"name":"rice","price":4.04}]'))
+
+
+function setup() {
+  $("#btn").on("click", function () {
+    var btn = $(this);
+    btn.hide();
+    setTimeout(function () {
+      btn.show();
+    }, 1000);
+  });
+}
+
+// Example case
+document.body.innerHTML = '<button type="button" id="btn">Hide Me!</button>';
+setup();
