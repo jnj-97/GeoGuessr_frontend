@@ -1,3 +1,20 @@
+<script setup>
+import { ref } from "vue";
+import { jwtDecode } from "jwt-decode";
+
+const userProfile = ref(null);
+const callback = (response) => {
+  if (response.credential) {
+    const decoded = jwtDecode(response.credential);
+    userProfile.value = {
+      name: decoded.name,
+      picture: decoded.picture,
+      email: decoded.email,
+    };
+  }
+  console.log(jwtDecode(response.credential));
+};
+</script>
 <template>
   <div class="relative w-screen h-screen overflow-hidden">
     <!-- Background 1: NYC -->
@@ -46,6 +63,20 @@
           <li class="cursor-pointer">Create Custom Map</li>
         </ul>
       </nav>
+      <GoogleLogin
+        class="absolute bottom-0 left-1/3"
+        v-if="!userProfile"
+        :callback="callback"
+      />
+      <div
+        class="flex justify-center align-center gap-4 w-1/2 relative left-1/3 top-1/4 p-4"
+        v-if="userProfile"
+      >
+        <img class="rounded-full w-16 h-16" :src="userProfile.picture" />
+        <h1 class="text-2xl text-white font-thin">
+          Wecome {{ userProfile.name }}
+        </h1>
+      </div>
 
       <Footer />
     </div>
@@ -74,6 +105,7 @@
 
 <script>
 import Footer from "@/components/Footer.vue";
+import { GoogleLogin } from "vue3-google-login";
 
 export default {
   components: { Footer },
