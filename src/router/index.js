@@ -1,8 +1,8 @@
 // src/router/index.ts (or .js)
 import { createRouter, createWebHistory } from "vue-router";
-import userLocation from "@/pages/userLocation.vue";
 import NearbySearch from "@/pages/NearbySearch.vue";
 import MainPage from "@/pages/MainPage.vue";
+import NewGame from "@/pages/NewGame.vue";
 
 const routes = [
   {
@@ -11,9 +11,9 @@ const routes = [
     component: MainPage,
   },
   {
-    path: "/search",
-    name: "About",
-    component: userLocation,
+    path: "/new",
+    name: "New Game",
+    component: NewGame,
   },
   {
     path: "/nearby",

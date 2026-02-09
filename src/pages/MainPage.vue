@@ -56,11 +56,13 @@ const callback = (response) => {
         <ul
           class="flex pt-4 text-4xl font-bold justify-center gap-10 text-red-600"
         >
-          <li class="cursor-pointer">Home</li>
-          <li @click="codeWindow = true" class="cursor-pointer">Join Game</li>
-          <li class="cursor-pointer">New Game</li>
-          <li class="cursor-pointer">Public Game</li>
-          <li class="cursor-pointer">Create Custom Map</li>
+          <li class="cursor-pointer"><a>Home</a></li>
+          <li @click="codeWindow = true" class="cursor-pointer">
+            <a>Join Game</a>
+          </li>
+          <li class="cursor-pointer"><a href="/new">New Game</a></li>
+          <li class="cursor-pointer"><a>Public Game</a></li>
+          <li class="cursor-pointer"><a>Create Custom Map</a></li>
         </ul>
       </nav>
       <GoogleLogin
